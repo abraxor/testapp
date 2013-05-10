@@ -12,7 +12,7 @@ set :bundle_without, [:development]
 
 server "fdr.viralgraph.com", :app, :web, :db, :primary => true
 
-#before 'deploy:restart', 'deploy:migrate'
+before 'deploy:restart', 'deploy:migrate'
 # Install RVM
 before 'deploy', 'rvm:install_rvm'
 # Install Ruby
@@ -23,4 +23,4 @@ after 'deploy', 'deploy:cleanup'
 
 require "rvm/capistrano"
 require "bundler/capistrano"
-#load 'deploy/assets'
+load 'deploy/assets'
